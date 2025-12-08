@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="ad.size" content="width=300,height=250">
+  <meta property="og:image" content="">
+  <title>Banner</title>
+ 
+ <link rel="stylesheet" href="css/styles-cadn1.css">
+ <style>
+.media-container {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Background image layer */
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 100;
+}
+
+/* Video iframe centered horizontally and 50px from top */
+.video-player {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  z-index: 200;
+}
+
+/* Transparent PNG in bottom-left corner */
+.corner-image {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: auto;
+  height: 85px;
+  z-index: 300;
+  pointer-events: none;
+}
+</style>
+</head>
+
+  <body>
+
+    <div id="banner" class="banner" >
+
+
+<div style="max-width:300px;">
+             <a href="https://amzn.to/3ILcomF" target="_blank"> 
+        
+<div class="media-container">
+  <img src="layer1.png" class="background-layer" alt="">
+  
+<div class="video-player">  
+  <video 
+  id="myCDNVideo"
+  width="100%" 
+  muted 
+  playsinline 
+  style="max-width: 800px; aspect-ratio: 16/9; display: block; margin: auto;"
+>
+  <source src="https://1a-1791.com/video/s8/2/n/z/U/J/nzUJv.baa.mp4?b=1&u=nxjv&rel=0&autoplay=2" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</div>
+
+<script>
+  const video = document.getElementById("myCDNVideo");
+
+  const observer = new IntersectionObserver((entries, observerInstance) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        video.play().catch(e => console.log("Autoplay blocked:", e));
+        observerInstance.unobserve(video);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(video);
+
+  // Loop video when it ends
+  video.addEventListener('ended', () => {
+    video.currentTime = 0;
+    video.play();
+  });
+</script>
+  
+
+
+  
+  
+  <img src="book.png" class="corner-image" alt="">
+</div>
+	</a>	
+		
+            </div>
+            
+			
+      
+    </div>
+
+  </body>
+</html>
