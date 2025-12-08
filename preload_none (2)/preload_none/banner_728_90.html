@@ -1,0 +1,28 @@
+<script src="https://dtyry4ejybx0.cloudfront.net/js/CustomAdTextLoadTest.js?ver=0000013"></script>
+<ins id="cmIframeLoader"></ins>
+<script>
+  (function() {
+    var CANADSsrc = "html_banner_728_90.html?redlinkurl=%%ClickURLenc%%";
+    var CANADSwidth = 728;
+    var CANADSheight = 90;
+    var CDivID = document.getElementById("cmIframeLoader");
+    function insertBanner() {
+      try {
+        if (!CDivID.querySelector('iframe')) {
+          var CADSiframe = CANCreateIFrame(CANADSwidth, CANADSheight);
+          CADSiframe.style.border = "1px solid rgba(0,0,0,0.9)";
+          CADSiframe.src = CANADSsrc;
+          CDivID.appendChild(CADSiframe);
+        }
+      } catch (err) {
+        console.error("Error creating iframe:", err);
+      }
+    }
+    try {
+      CANAttachCustomHandlers();
+    } catch (err) {
+      console.warn("CANAttachCustomHandlers is not available:", err);
+    }
+    insertBanner();
+  })();
+</script>
