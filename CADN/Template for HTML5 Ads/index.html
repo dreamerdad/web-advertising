@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="ad.size" content="width=300,height=250">
+  <meta property="og:image" content="">
+  <title>Banner</title>
+ 
+ <link rel="stylesheet" href="style.css">
+ <style>
+.media-container {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  margin: auto;
+  overflow: hidden;
+}
+
+</style>
+        <script type="text/javascript">
+                             function getUrlParameter(name) {   name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');    var results = regex.exec(location.search);    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' ')); };
+		   function getQueryStringValue (key) {  
+  return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+}  		
+   var clickTag=getQueryStringValue('redlinkurl');  
+</script>
+</head>
+
+  <body>
+
+    <div id="banner" class="banner" >
+   <a class="ad" id="container_clickthrough" href="javascript:window.open(window.clickTag); void 0;" style="position:absolute; width:100%; height:100%;">
+
+<div style="max-width:300px;">
+        
+<div class="media-container">
+  
+  <video 
+  id="myCDNVideo"
+  width="300" 
+  height="250"
+  muted 
+  playsinline 
+  style="display: block; margin: auto;"
+>
+  <source src="https://1a-1791.com/video/fwe2/45/s8/2/G/q/L/x/GqLxz.caa.mp4?b=1&u=nxjv&rel=0&autoplay=2" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<script>
+  const video = document.getElementById("myCDNVideo");
+
+  const observer = new IntersectionObserver((entries, observerInstance) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        video.play().catch(e => console.log("Autoplay blocked:", e));
+        observerInstance.unobserve(video);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(video);
+
+  // Loop video when it ends
+  video.addEventListener('ended', () => {
+    video.currentTime = 0;
+    video.play();
+  });
+</script>
+  
+
+
+  
+</div>
+		
+            </div>
+            
+			</a>
+      
+    </div>
+
+  </body>
+</html>
